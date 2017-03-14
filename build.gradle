@@ -1,0 +1,29 @@
+group 'com.cegeka.school'
+version = '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+allprojects {
+	repositories {
+		mavenCentral()
+	}
+}
+
+
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+repositories {
+	mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+	project(path:':evaluation-rest', configuration:'archives')
+	project(path:':evaluation-ui', configuration:'archives')
+}
