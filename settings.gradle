@@ -1,1 +1,1 @@
-include 'evaluation-rest', 'evaluation-ui', 'evaluation-scenariotest'
+include 'evaluation-rest', 'evaluation-ui'

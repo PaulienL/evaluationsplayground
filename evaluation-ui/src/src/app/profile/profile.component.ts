@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'auth-app',
-  template: `
+    selector: 'profile',
+    template: `
   <div class="container body-container">
-    <router-outlet></router-outlet>
+    <div>We should hide thisss</div>
   </div>
   `
 })
-export class AppComponent {}
+export class ProfileComponent {}
