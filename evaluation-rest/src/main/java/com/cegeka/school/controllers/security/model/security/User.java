@@ -1,13 +1,17 @@
 package com.cegeka.school.controllers.security.model.security;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 public class User implements UserDetails {
 
+    private int user_id;
     private String username;
     private String password;
     private String firstname;
@@ -15,11 +19,12 @@ public class User implements UserDetails {
     private String email;
     private Boolean enabled;
     private Date lastPasswordResetDate;
-    private List<GrantedAuthority> authorities;
+    private List<String> authorities;
 
     public String getUsername() {
         return username;
     }
+
 
     @Override
     public boolean isAccountNonExpired() {
@@ -74,10 +79,12 @@ public class User implements UserDetails {
     }
 
     public List<GrantedAuthority> getAuthorities() {
-        return authorities;
+        return authorities.stream()
+                .map(grantauthority -> new SimpleGrantedAuthority(grantauthority))
+                .collect(Collectors.toList());
     }
 
-    public void setAuthorities(List<GrantedAuthority> authorities) {
+    public void setAuthorities(List<String> authorities) {
         this.authorities = authorities;
     }
 

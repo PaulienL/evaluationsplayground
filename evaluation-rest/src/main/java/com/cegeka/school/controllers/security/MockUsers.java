@@ -1,7 +1,6 @@
 package com.cegeka.school.controllers.security;
 
 import com.cegeka.school.controllers.security.model.security.User;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +20,7 @@ public class MockUsers {
         seppe.setUsername("seppe");
         seppe.setPassword("password");
         seppe.setEnabled(true);
-        seppe.setAuthorities(Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
+        seppe.setAuthorities(Arrays.asList(("ROLE_USER")));
         return seppe;
     }
 
@@ -30,7 +29,7 @@ public class MockUsers {
         johan.setUsername("johan");
         johan.setPassword("password");
         johan.setEnabled(true);
-        johan.setAuthorities(Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
+        johan.setAuthorities(Arrays.asList(("ROLE_USER")));
         return johan;
     }
 }

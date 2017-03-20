@@ -12,7 +12,7 @@ var ProfileComponent = (function () {
     ProfileComponent = __decorate([
         core_1.Component({
             selector: 'profile',
-            template: "\n  <div class=\"container body-container\">\n    <div>We should hide thisss</div>\n  </div>\n  "
+            templateUrl : 'profile.html'
         })
     ], ProfileComponent);
     return ProfileComponent;

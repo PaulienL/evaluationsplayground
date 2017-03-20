@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Http } from "@angular/http";
+
 
 @Component({
     selector: 'profile',
-    template: `
-  <div class="container body-container">
-    <div>We should hide thisss</div>
-  </div>
-  `
+    templateUrl : 'profile.html'
+
 })
-export class ProfileComponent {}
+export class ProfileComponent{}

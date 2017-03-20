@@ -1,10 +1,30 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<title>Cegeka - Feedback Platform</title>
+    <script src="https://use.fontawesome.com/76a80080d1.js"></script>
 </head>
 <body>
-<p>tadaam!</p>
-</body>
+    <header> 
+        <img src="/assets/images/banner.jpg" >
+    </header>
+<section>
+  <article>
+   <h1 class="login">Login</h1>
+      <div id="wrapper">
+        <form> 
+          <input type="text" id="username" name="username" placeholder="Username" [(ngModel)]="username">
+          <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="password">
+        </form>
+            <div class="button login" (click)="login(username, password)" >Login
+            </div>
+            </div>
+  </article>
+</section>
+
+<footer>
+   
+</footer>
+</body>	
 </html>
