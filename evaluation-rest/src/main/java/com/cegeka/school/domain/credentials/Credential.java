@@ -1,13 +1,10 @@
 package com.cegeka.school.domain.credentials;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
+@Entity
+@Table(name = "CREDENTIALS")
 public class Credential {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -21,11 +21,13 @@ public class EmployeeTest {
 
     @Test
     public void getFirstNameFromEmail_shouldReturnStringFirstName() throws Exception {
-        Assertions.assertThat(testEmployee.getFirstNameFromEmail()).isEqualTo("test");
+        Assertions.assertThat(testEmployee.getFirstNameFromEmail()).isEqualTo("Test");
     }
 
     @Test
     public void getLastNameFromEmail_shouldReturnStringLastName() throws Exception {
-        Assertions.assertThat(testEmployee.getLastNameFromEmail()).isEqualTo("example");
+        Assertions.assertThat(testEmployee.getLastNameFromEmail()).isEqualTo("Example");
     }
+
+
 }
