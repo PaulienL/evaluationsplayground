@@ -1,16 +1,12 @@
 package com.cegeka.school.domain.meetings;
 
-import com.sun.javafx.geom.transform.Identity;
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "MEETINGS")
 public class Meeting {
 
-    @OneToMany
-    @JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")
-    private int employeeID;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "MEETING_ID")
@@ -29,10 +25,6 @@ public class Meeting {
 
     public void setStatus(boolean status) {
         this.status = status;
-    }
-
-    public int getEmployeeID() {
-        return employeeID;
     }
 
     public int getMeetingID() {
@@ -58,7 +50,6 @@ public class Meeting {
 
         Meeting meeting = (Meeting) o;
 
-        if (employeeID != meeting.employeeID) return false;
         if (meetingID != meeting.meetingID) return false;
         if (score != meeting.score) return false;
         if (status != meeting.status) return false;
@@ -67,8 +58,7 @@ public class Meeting {
 
     @Override
     public int hashCode() {
-        int result = employeeID;
-        result = 31 * result + meetingID;
+        int result = meetingID;
         result = 31 * result + (meetingDate != null ? meetingDate.hashCode() : 0);
         result = 31 * result + score;
         result = 31 * result + (status ? 1 : 0);

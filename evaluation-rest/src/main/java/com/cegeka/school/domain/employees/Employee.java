@@ -1,9 +1,9 @@
 package com.cegeka.school.domain.employees;
 
 import com.cegeka.school.domain.credentials.Credential;
-import org.springframework.data.annotation.Id;
-
+import com.cegeka.school.domain.meetings.Meeting;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -15,18 +15,17 @@ public class Employee {
     private String firstName;
     @Column(name = "JOB_DESCRIPTION")
     private String jobDescription;
-    @Id
     @Column(name = "EVALUATOR_ID")
     private int evaluatorID;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")
-    private int employeeID;
-
-    public void setCredential(Credential credential) {
-        this.credential = credential;
-    }
-
+    @JoinColumn(referencedColumnName = "EMPLOYEE_ID")
     private Credential credential;
+    @Id
+    @Column(name = "EMPLOYEE_ID")
+    private int employeeID;
+    @OneToMany
+    @JoinColumn( referencedColumnName = "EMPLOYEE_ID")
+    private List<Meeting> meetings;
 
    public Employee(){}
 
@@ -34,14 +33,22 @@ public class Employee {
        String input = credential.getEmail();
        String firstName = input.replace("@cegeka.com","")
                                .substring(0,input.indexOf("."));
-       return firstName;
+        String output = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
+        return output;
+
     }
 
     public String getLastNameFromEmail(){
         String input = credential.getEmail();
         String lastName = input.replace("@cegeka.com","")
                 .substring(input.indexOf(".")+1, input.indexOf("@"));
-        return lastName;
+
+        String output = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
+        return output;
+    }
+
+    public void setCredential(Credential credential) {
+        this.credential = credential;
     }
 
     public Employee(String lastName, String firstName, String jobDescription, int evaluatorID, int employeeID) {
@@ -70,6 +77,14 @@ public class Employee {
 
     public int getEmployeeID() {
         return employeeID;
+    }
+
+    public Credential getCredential() {
+        return credential;
+    }
+
+    public List<Meeting> getMeetings() {
+        return meetings;
     }
 
     @Override
