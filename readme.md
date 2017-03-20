@@ -59,7 +59,7 @@
 * Outlook
 * Active directory
 
-![context_map](img/contextmap.png)
+![context_map](https://github.com/VanausloosThomas/evaluations/tree/master/img/contextmap.png)
 
 #### User story map
 

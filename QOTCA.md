@@ -7,7 +7,7 @@
 * Steven
 * Thomas
 
-![context_map](QOTCA.jpg)
+![QOTCA logo](https://github.com/VanausloosThomas/evaluations/tree/master/img/QOTCA.jpg)
 
 ## Team agreements
 
