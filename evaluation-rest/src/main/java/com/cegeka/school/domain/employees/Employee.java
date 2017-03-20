@@ -1,5 +1,6 @@
 package com.cegeka.school.domain.employees;
 
+import com.cegeka.school.domain.credentials.Credential;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
@@ -21,7 +22,27 @@ public class Employee {
     @JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")
     private int employeeID;
 
-   private Employee(){}
+    public void setCredential(Credential credential) {
+        this.credential = credential;
+    }
+
+    private Credential credential;
+
+   public Employee(){}
+
+    public String getFirstNameFromEmail(){
+       String input = credential.getEmail();
+       String firstName = input.replace("@cegeka.com","")
+                               .substring(0,input.indexOf("."));
+       return firstName;
+    }
+
+    public String getLastNameFromEmail(){
+        String input = credential.getEmail();
+        String lastName = input.replace("@cegeka.com","")
+                .substring(input.indexOf(".")+1, input.indexOf("@"));
+        return lastName;
+    }
 
     public Employee(String lastName, String firstName, String jobDescription, int evaluatorID, int employeeID) {
         this.lastName = lastName;
